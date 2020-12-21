@@ -1,0 +1,28 @@
+/* These styles are generated from project.scss. */
+body {
+  font-family: 'Lateef', serif;
+}
+.alert-debug {
+  color: black;
+  background-color: white;
+  border-color: #d6e9c6;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.mh {
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: 'Amiri', serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: underline;
+}
+.frm > * {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

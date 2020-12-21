@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+المحليات
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+      <br />
+      <div class="p-3 mb-2 bg-secondary text-white"><h3>قائمة الولايات</h3></div>
+      {% if unities %}
+        <table class="table">
+          <thead>
+            <th></th>
+            <th>المتسلسل</th>
+            <th>الوحدو الادارية</th>
+            <th>المحلية</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            {% for unity in unities %}
+            <tr>
+              <td></td>
+              <td>{{ unity.id}}</td>
+              <td>{{ unity.name }}</td>
+              <td>{{ unity.locality.name }}</td>
+              <td><a href="{% url 'locations:update_unity' unity.id %}" >تعديل</a>
+              </td>
+              <td><a href="#">حذف</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        لا توجد بيانات
+      {% endif %}
+
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+</div>
+{% endblock %}

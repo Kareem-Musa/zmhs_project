@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+المحليات
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+    </div>
+    <div class="col-8">
+      <br />
+      <div class="p-3 mb-2 bg-secondary text-white"><h3>قائمة المحليات</h3></div>
+      {% if localities %}
+        <table class="table">
+          <thead>
+            <th></th>
+            <th>المتسلسل</th>
+            <td>المحلية</td>
+            <th>الولاية</th>
+            <th></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <a href="{% url 'locations:add_locality' %}">محلية جديدة</a>
+            {% for locality in localities %}
+            <tr>
+              <td></td>
+              <td>{{ locality.id }}</td>
+              <td>{{ locality.name }}</td>
+              <td>{{ locality.state.name }}</td>
+              <td><a href="{% url 'locations:update_locality' locality.id %}" >تعديل</a>
+              </td>
+              <td><a href="#">حذف</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        لا توجد بيانات
+      {% endif %}
+
+    </div>
+    <div class="col-2">
+    </div>
+  </div>
+</div>
+{% endblock %}

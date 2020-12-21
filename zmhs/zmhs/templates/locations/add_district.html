@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+انشا حى او قرية
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6"><br />
+        <h3 >
+          
+        </h3>
+        <form method="post" class="col-5 frm"><hr />
+          {% csrf_token %}
+          {{ form|crispy}}
+          <br />
+          <input type="submit" class="btn btn-outline-primary col-6" value="حفظ">
+        </form>
+      </div>
+      <div class="col-3"></div>
+      </div>
+  </div>
+{% endblock %}

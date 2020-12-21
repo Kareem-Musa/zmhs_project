@@ -1,0 +1,32 @@
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+ولاية {{ state.name }}
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="logo">
+        <div>
+          <a href="./">المحصول</a>
+          <span class="tagline">...cool community forum</span>
+          </div>
+        </div>
+        <div class="pageTitle">تفاصيل الولاية</div>
+        <div class="row pad">
+          <br />
+          {% if state %}
+            <h4><b>الولاية : {{ state.name }} </b></h4>
+          
+            <a href="{% url 'locations:update_state' state.id %}" class="btn btn-outline-success col-3"> تعديل</a>
+            <a href="#" class="btn btn-outline-danger col-3"> حذف</a>
+          {% endif %}
+          </div>
+      </div>
+      <div class="col-3">
+      </div>
+    </div>
+  </div>
+{% endblock %}

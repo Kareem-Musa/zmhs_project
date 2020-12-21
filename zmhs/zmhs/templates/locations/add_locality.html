@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+محلية جديدة
+{% endblock %}
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-3"></div>
+      <div class="col-6"><br />
+        <h3 >أضافة محلية جديدة</h3>
+        <form method="post" class="col-5 frm"><hr />
+          {% csrf_token %}
+          {{ form|crispy}}
+          <br />
+          <button type="submit" class="btn btn-outline-primary">حفظ <i class="bi bi-bookmark-check-fill"></i></button>
+
+        </form>
+      </div>
+      <div class="col-3"></div>
+      </div>
+  </div>
+{% endblock %}

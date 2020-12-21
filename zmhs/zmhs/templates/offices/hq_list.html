@@ -1,0 +1,50 @@
+{% extends 'master.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+الامانات
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+      <div class="logo">
+        <div>
+          <a href="./">المحصول</a>
+          <span class="tagline">...cool community forum</span>
+          </div>
+        </div>
+        <div class="pageTitle"> قائمة امانات الزكاة</div>
+        <div class="row pad">
+
+              {% if hqs %}
+              <table class="table table-success table-striped">
+                <thead>
+                  <th></th>
+                  <th>المتسلسل</th>
+                  <th>الولاية</th>
+                  <th>الامانة</th>
+                  <th></th>
+                  <th></th>
+                </thead>
+                <tbody>
+                {% for hq in hqs %}
+                <tr>
+                  <td></td>
+                  <td>{{ hq.id }}</td>
+                  <td>{{ hq.state.name}}</td>
+                  <td>{{ hq.name }}</td>
+                  <td><a href="{% url 'offices:update_hq' hq.id %}" data-bs-toggle="modal" class="btn btn-outline-primary btn-sm bt-sm">تعدبل</a></td>
+                  <td><a href="#" class="btn btn-outline-danger btn-sm bt-sm">حذف</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+            {% endif %}
+          </div>
+      </div>
+      <div class="col-3">
+      </div>
+    </div>
+  </div>
+{% endblock %}
